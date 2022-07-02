@@ -1,0 +1,26 @@
+--Created a grocery store database
+
+create table store (id integer primary key, name text, price integer, quantity integer, aisle integer);
+
+insert into store values (1, 'cases', 149.99, 5, 1);
+insert into store values (2, 'monitors', 99.99, 20, 2);
+insert into store values (3, 'keyboards', 75.99, 20, 3);
+insert into store values (4, 'mice', 65.99, 30, 4);
+insert into store values (5, 'cameras', 124.99, 15, 5);
+insert into store values (6, 'mouse pads', 14.99, 50, 6);
+insert into store values (7, 'motherboards', 85.99, 5, 7);
+insert into store values (8, 'RAM', 74.99, 30, 8);
+insert into store values (9, 'graphics cards', 299.99, 2, 9);
+insert into store values (10, 'power supplies', 149.99, 20, 10);
+insert into store values (11, 'CPU', 249.99, 5, 11);
+insert into store values (12, 'fans', 34.99, 40, 12);
+insert into store values (13, 'controllers', 59.99, 50, 13);
+insert into store values (14, 'headsets', 199.99, 20, 14);
+insert into store values (15, 'charge cables', 14.99, 60, 15);
+
+--Display the database ordered by price
+SELECT * FROM store
+order by price;
+
+--What is the most expensive item in the store?
+select max(price) from store;
