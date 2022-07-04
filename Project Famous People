@@ -1,0 +1,49 @@
+/* Create table about the people and what they do here */
+create table superheroes (id integer primary key autoincrement, name text, home text, universe text);
+
+insert into superheroes values(1, 'spiderman', 'queens', 'marvel');
+insert into superheroes values(2, 'superman', 'metropolis', 'dc');
+insert into superheroes values(3, 'hulk', 'always moving', 'marvel');
+insert into superheroes values(4, 'iron man', 'malibu', 'marvel');
+insert into superheroes values(5, 'black panther', 'wakanda', 'marvel');
+insert into superheroes values(6, 'thor', 'asgard', 'marvel');
+insert into superheroes values(7, 'batman', 'gotham', 'dc');
+insert into superheroes values(8, 'green lanter', 'coast city', 'dc');
+insert into superheroes values(9, 'captain america', 'brooklyn', 'marvel');
+insert into superheroes values(10, 'doctor strange', 'manhattan', 'marvel');
+
+select * from superheroes;
+
+create table movies (id integer primary key autoincrement, id_hero integer, movie text, release_date text);
+
+insert into movies values(1, 4, 'iron man', 2008);
+insert into movies values(2, 3, 'the incredible hulk', 2008);
+insert into movies values(3, 10, 'doctor strange', 2022);
+insert into movies values(4, 8, 'green lanter', 2011);
+insert into movies values(5, 6, 'thor ragnarok', 2017);
+insert into movies values(6, 9, 'captain america civil war', 2016);
+insert into movies values(7, 5, 'black panther', 2018);
+insert into movies values(8, 7, 'batman', 2022);
+insert into movies values(9, 2, 'man of steel', 2013);
+insert into movies values(10, 1, 'spiderman no way home', 2021);
+
+select * from movies;
+
+--Selected both tables with joins to make easy to read tables
+
+select superheroes.name, movies.movie from superheroes
+join movies
+on superheroes.id=movies.id_hero;
+
+select superheroes.name, movies.movie, movies.release_date from superheroes
+join movies
+on superheroes.id=movies.id_hero;
+
+select superheroes.id, superheroes.name, movies.movie, movies.release_date from superheroes
+join movies
+on superheroes.id=movies.id_hero;
+
+select superheroes.id, movies.id_hero, superheroes.name, movies.movie, movies.release_date from superheroes
+join movies
+on superheroes.id=movies.id_hero
+group by superheroes.id;
